@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Send, MapPin, Mail, Phone, Clock, CheckCircle } from 'lucide-react';
-import { useLanguage } from '../../hooks/use-language';
-import { SectionHeader } from '../common/section-header';
-import { CtaButton } from '../common/cta-button';
-import { useSectionAnimation } from '../../hooks/use-section-animation';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, MapPin, Mail, Phone, Clock, CheckCircle } from "lucide-react";
+import { useLanguage } from "../../hooks/use-language";
+import { SectionHeader } from "../common/section-header";
+import { CtaButton } from "../common/cta-button";
+import { useSectionAnimation } from "../../hooks/use-section-animation";
 
 interface ContactSectionProps {
   email: string;
@@ -23,9 +23,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const { fadeInUp } = useSectionAnimation();
 
   // Form states
-  const [name, setName] = useState('');
-  const [formEmail, setFormEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [formEmail, setFormEmail] = useState("");
+  const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -38,85 +38,112 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      setName('');
-      setFormEmail('');
-      setMessage('');
-      
+      setName("");
+      setFormEmail("");
+      setMessage("");
+
       // Clear success alert after 5s
       setTimeout(() => setIsSuccess(false), 5000);
     }, 1500);
   };
 
-  const address = language === 'ar' ? addressAr : addressEn;
+  const address = language === "ar" ? addressAr : addressEn;
 
   return (
-    <section id="contact" className="py-20 bg-background-secondary/20 relative overflow-hidden">
+    <section
+      id="contact"
+      className="relative bg-background-secondary/20 py-20 overflow-hidden"
+    >
       {/* Decorative details */}
-      <div className="absolute top-[30%] left-[-10%] w-[300px] h-[300px] bg-accent-blue/5 rounded-full blur-[80px] -z-10 animate-pulse-slow" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[350px] h-[350px] bg-accent-purple/5 rounded-full blur-[100px] -z-10" />
+      <div className="top-[30%] left-[-10%] -z-10 absolute blur-[80px] rounded-full w-[300px] h-[300px] animate-pulse-slow bg-accent-blue/5" />
+      <div className="right-[-10%] bottom-[10%] -z-10 absolute blur-[100px] rounded-full w-[350px] h-[350px] bg-accent-purple/5" />
 
-      <div className="container mx-auto px-6">
+      <div className="mx-auto px-6 container">
         <SectionHeader
-          title={t('contactTitle')}
-          subtitle={t('contactSubtitle')}
-          badge={language === 'ar' ? 'تواصل معنا' : 'Get in Touch'}
+          title={t("contactTitle")}
+          subtitle={t("contactSubtitle")}
+          badge={language === "ar" ? "تواصل معنا" : "Get in Touch"}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-start max-w-6xl mx-auto">
+        <div className="items-start gap-10 md:gap-12 grid grid-cols-1 lg:grid-cols-12 mx-auto max-w-6xl">
           {/* Left Block: Contact Details */}
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="lg:col-span-5 flex flex-col gap-6"
+            className="flex flex-col gap-6 lg:col-span-5"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-text-heading mb-2 leading-tight">
-              {language === 'ar' ? 'معلومات الاتصال المباشرة' : 'Direct Contact Nodes'}
+            <h3 className="mb-2 font-bold text-text-heading text-xl md:text-2xl leading-tight">
+              {language === "ar"
+                ? "معلومات الاتصال المباشرة"
+                : "Direct Contact Nodes"}
             </h3>
 
             {/* Address Box */}
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-background-tertiary/40 border border-white/5 backdrop-blur-sm hover:border-accent-blue/20 transition-all">
-              <div className="w-10 h-10 rounded-xl bg-accent-blue/10 border border-accent-blue/20 text-accent-blue flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+              <div className="flex flex-shrink-0 justify-center items-center border border-accent-blue/20 rounded-xl w-10 h-10 bg-accent-blue/10 text-accent-blue">
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
-                <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{t('contactInfoAddress')}</span>
-                <span className="text-sm font-semibold text-text-heading leading-relaxed">{address}</span>
+                <span className="font-bold text-text-secondary text-xs uppercase tracking-widest">
+                  {t("contactInfoAddress")}
+                </span>
+                <span className="font-semibold text-text-heading text-sm leading-relaxed">
+                  {address}
+                </span>
               </div>
             </div>
 
             {/* Email Box */}
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-background-tertiary/40 border border-white/5 backdrop-blur-sm hover:border-accent-blue/20 transition-all">
-              <div className="w-10 h-10 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20 text-accent-cyan flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+              <div className="flex flex-shrink-0 justify-center items-center border border-accent-cyan/20 rounded-xl w-10 h-10 bg-accent-cyan/10 text-accent-cyan">
                 <Mail className="w-5 h-5" />
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
-                <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{t('contactInfoEmail')}</span>
-                <a href={`mailto:${email}`} className="text-sm font-semibold text-text-heading hover:text-accent-cyan transition-colors break-all">{email}</a>
+                <span className="font-bold text-text-secondary text-xs uppercase tracking-widest">
+                  {t("contactInfoEmail")}
+                </span>
+                <a
+                  href={`mailto:${email}`}
+                  className="font-semibold text-text-heading text-sm break-all transition-colors hover:text-accent-cyan"
+                >
+                  {email}
+                </a>
               </div>
             </div>
 
             {/* Phone/WhatsApp Box */}
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-background-tertiary/40 border border-white/5 backdrop-blur-sm hover:border-accent-blue/20 transition-all">
-              <div className="w-10 h-10 rounded-xl bg-accent-purple/10 border border-accent-purple/20 text-accent-purple flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+              <div className="flex flex-shrink-0 justify-center items-center border border-accent-purple/20 rounded-xl w-10 h-10 bg-accent-purple/10 text-accent-purple">
                 <Phone className="w-5 h-5" />
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
-                <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{t('contactInfoPhone')}</span>
-                <a href={`tel:${phone}`} className="text-sm font-semibold text-text-heading hover:text-accent-purple transition-colors">{phone}</a>
+                <span className="font-bold text-text-secondary text-xs uppercase tracking-widest">
+                  {t("contactInfoPhone")}
+                </span>
+                <a
+                  href={`tel:${phone}`}
+                  className="font-semibold text-text-heading text-sm transition-colors hover:text-accent-purple"
+                >
+                  {phone}
+                </a>
               </div>
             </div>
 
             {/* Working Hours Box */}
-            <div className="flex items-start gap-4 p-5 rounded-2xl bg-background-tertiary/40 border border-white/5 backdrop-blur-sm hover:border-accent-blue/20 transition-all">
-              <div className="w-10 h-10 rounded-xl bg-accent-magenta/10 border border-accent-magenta/20 text-accent-magenta flex items-center justify-center flex-shrink-0">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+              <div className="flex flex-shrink-0 justify-center items-center border border-accent-magenta/20 rounded-xl w-10 h-10 bg-accent-magenta/10 text-accent-magenta">
                 <Clock className="w-5 h-5" />
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
-                <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{language === 'ar' ? 'ساعات الدعم' : 'Operational Status'}</span>
-                <span className="text-sm font-semibold text-text-heading leading-relaxed">
-                  {language === 'ar' ? 'السبت - الخميس (9ص - 9م)' : 'Sat - Thu: 9:00 AM - 9:00 PM'}
+                <span className="font-bold text-text-secondary text-xs uppercase tracking-widest">
+                  {language === "ar" ? "ساعات الدعم" : "Operational Status"}
+                </span>
+                <span className="font-semibold text-text-heading text-sm leading-relaxed">
+                  {language === "ar"
+                    ? "السبت - الخميس (9ص - 9م)"
+                    : "Sat - Thu: 9:00 AM - 9:00 PM"}
                 </span>
               </div>
             </div>
@@ -126,33 +153,39 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="lg:col-span-7 p-6 md:p-8 rounded-3xl bg-background-card border border-white/5 backdrop-blur-md relative"
+            className="relative lg:col-span-7 bg-background-card backdrop-blur-md p-6 md:p-8 border border-border-muted/10 rounded-3xl"
           >
             {/* Border glow */}
-            <div className="absolute inset-0 rounded-3xl border border-accent-blue/20 opacity-30 pointer-events-none -z-10 shadow-glass" />
-            
-            <h3 className="text-xl md:text-2xl font-bold text-text-heading mb-6 leading-tight text-left rtl:text-right">
-              {t('contactGetInTouch')}
+            <div className="-z-10 absolute inset-0 opacity-30 shadow-glass border border-accent-blue/20 rounded-3xl pointer-events-none" />
+
+            <h3 className="mb-6 font-bold text-text-heading text-xl md:text-2xl text-left rtl:text-right leading-tight">
+              {t("contactGetInTouch")}
             </h3>
 
             {isSuccess && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center gap-3 text-sm font-semibold text-left rtl:text-right"
+                className="flex items-center gap-3 bg-emerald-500/10 mb-6 p-4 border border-emerald-500/30 rounded-xl font-semibold text-emerald-400 text-sm text-left rtl:text-right"
               >
-                <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                <span>{t('contactSuccess')}</span>
+                <CheckCircle className="flex-shrink-0 w-5 h-5" />
+                <span>{t("contactSuccess")}</span>
               </motion.div>
             )}
 
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5 text-left rtl:text-right">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-5 text-left rtl:text-right"
+            >
               {/* Name Input */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-xs font-bold text-text-secondary uppercase tracking-widest">
-                  {t('contactName')}
+                <label
+                  htmlFor="name"
+                  className="font-bold text-text-secondary text-xs uppercase tracking-widest"
+                >
+                  {t("contactName")}
                 </label>
                 <input
                   id="name"
@@ -160,15 +193,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-text-primary text-sm transition-all"
-                  placeholder={language === 'ar' ? 'اسمك الكريم' : 'Your name'}
+                  className="bg-background-tertiary/40 px-4 py-3 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all"
+                  placeholder={language === "ar" ? "اسمك الكريم" : "Your name"}
                 />
               </div>
 
               {/* Email Input */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-xs font-bold text-text-secondary uppercase tracking-widest">
-                  {t('contactEmail')}
+                <label
+                  htmlFor="email"
+                  className="font-bold text-text-secondary text-xs uppercase tracking-widest"
+                >
+                  {t("contactEmail")}
                 </label>
                 <input
                   id="email"
@@ -176,15 +212,18 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   required
                   value={formEmail}
                   onChange={(e) => setFormEmail(e.target.value)}
-                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-text-primary text-sm transition-all"
+                  className="bg-background-tertiary/40 px-4 py-3 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all"
                   placeholder="example@mail.com"
                 />
               </div>
 
               {/* Message Textarea */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-xs font-bold text-text-secondary uppercase tracking-widest">
-                  {t('contactMessage')}
+                <label
+                  htmlFor="message"
+                  className="font-bold text-text-secondary text-xs uppercase tracking-widest"
+                >
+                  {t("contactMessage")}
                 </label>
                 <textarea
                   id="message"
@@ -192,8 +231,12 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-text-primary text-sm transition-all resize-none"
-                  placeholder={language === 'ar' ? 'تفاصيل استفسارك...' : 'Describe what you need...'}
+                  className="bg-background-tertiary/40 px-4 py-3 border border-border-muted/10 hover:border-border-muted/20 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all resize-none"
+                  placeholder={
+                    language === "ar"
+                      ? "تفاصيل استفسارك..."
+                      : "Describe what you need..."
+                  }
                 />
               </div>
 
@@ -202,13 +245,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 type="submit"
                 variant="primary"
                 disabled={isSubmitting}
-                className="w-full mt-2"
+                className="mt-2 w-full"
               >
                 {isSubmitting ? (
-                  <span className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                  <span className="border-2 border-border-muted/30 border-t-text-primary rounded-full w-5 h-5 animate-spin" />
                 ) : (
                   <>
-                    <span>{t('contactSend')}</span>
+                    <span>{t("contactSend")}</span>
                     <Send className="w-4 h-4" />
                   </>
                 )}

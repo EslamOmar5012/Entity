@@ -1,29 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { PageShell } from '../components/layout/page-shell';
-import { HeroSection } from '../components/sections/hero-section';
-import { SolutionsSection } from '../components/sections/solutions-section';
-import { WhyUsSection } from '../components/sections/why-us-section';
-import { ClientsSection } from '../components/sections/clients-section';
-import { ProjectsSection } from '../components/sections/projects-section';
-import { AboutSection } from '../components/sections/about-section';
-import { ContactSection } from '../components/sections/contact-section';
+import React, { useEffect, useState } from "react";
+import { PageShell } from "../components/layout/page-shell";
+import { HeroSection } from "../components/sections/hero-section";
+import { SolutionsSection } from "../components/sections/solutions-section";
+import { WhyUsSection } from "../components/sections/why-us-section";
+import { ClientsSection } from "../components/sections/clients-section";
+import { ProjectsSection } from "../components/sections/projects-section";
+import { AboutSection } from "../components/sections/about-section";
+import { ContactSection } from "../components/sections/contact-section";
 
 // Services
-import { getSiteSettings } from '../services/settings-service';
-import { getSolutions } from '../services/solutions-service';
-import { getWhyUsItems, getAboutContent } from '../services/content-service';
-import { getClients } from '../services/clients-service';
-import { getProjects } from '../services/projects-service';
+import { getSiteSettings } from "../services/settings-service";
+import { getSolutions } from "../services/solutions-service";
+import { getWhyUsItems, getAboutContent } from "../services/content-service";
+import { getClients } from "../services/clients-service";
+import { getProjects } from "../services/projects-service";
 
 // Types
-import { SiteSettings, WhyUsItem, AboutContent } from '../types/company';
-import { Solution } from '../types/solution';
-import { Client } from '../types/client';
-import { Project } from '../types/project';
+import { SiteSettings, WhyUsItem, AboutContent } from "../types/company";
+import { Solution } from "../types/solution";
+import { Client } from "../types/client";
+import { Project } from "../types/project";
 
 export const Home: React.FC = () => {
   const [loading, setLoading] = useState(true);
-  
+
   // Data States
   const [settings, setSettings] = useState<SiteSettings | null>(null);
   const [solutions, setSolutions] = useState<Solution[]>([]);
@@ -41,7 +41,7 @@ export const Home: React.FC = () => {
           whyUsData,
           aboutData,
           clientsData,
-          projectsData
+          projectsData,
         ] = await Promise.all([
           getSiteSettings(),
           getSolutions(),
@@ -58,7 +58,7 @@ export const Home: React.FC = () => {
         setClients(clientsData);
         setProjects(projectsData);
       } catch (err) {
-        console.error('Failed to load home page content:', err);
+        console.error("Failed to load home page content:", err);
       } finally {
         setLoading(false);
       }
@@ -70,15 +70,17 @@ export const Home: React.FC = () => {
   if (loading || !settings || !about) {
     // Futuristic glowing loading screen
     return (
-      <div className="min-h-screen bg-background-primary flex flex-col items-center justify-center relative overflow-hidden">
+      <div className="relative flex flex-col justify-center items-center bg-background-primary min-h-screen overflow-hidden">
         {/* Neon Halo rings */}
-        <div className="absolute w-64 h-64 rounded-full border border-accent-blue/15 animate-ping -z-10" />
-        <div className="absolute w-48 h-48 rounded-full border border-dashed border-accent-cyan/20 animate-spin -z-10" style={{ animationDuration: '8s' }} />
-        
-        <span className="text-3xl font-black tracking-widest text-white text-glow-blue select-none animate-pulse">
+        <div className="-z-10 absolute border border-accent-blue/15 rounded-full w-64 h-64 animate-ping" />
+        <div
+          className="-z-10 absolute border border-accent-cyan/20 border-dashed rounded-full w-48 h-48 animate-spin"
+          style={{ animationDuration: "8s" }}
+        />
+        <span className="font-black text-glow-blue text-text-heading text-3xl tracking-widest animate-pulse select-none">
           ENTITY
-        </span>
-        <div className="w-16 h-1 bg-gradient-to-r from-accent-blue via-accent-cyan to-accent-purple rounded-full mt-4 animate-pulse" />
+        </span>{" "}
+        <div className="bg-gradient-to-r mt-4 rounded-full w-16 h-1 animate-pulse from-accent-blue to-accent-purple via-accent-cyan" />
       </div>
     );
   }
@@ -108,7 +110,7 @@ export const Home: React.FC = () => {
         email={settings.email}
         addressEn={settings.address_en}
         addressAr={settings.address_ar}
-        phone={settings.whatsapp_url.replace('https://wa.me/', '+')}
+        phone={settings.whatsapp_url.replace("https://wa.me/", "+")}
       />
     </PageShell>
   );
