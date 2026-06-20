@@ -13,7 +13,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
   const { t, language, toggleLanguage } = useLanguage();
-  const { theme, toggleTheme, isDark } = useTheme();
+  const {  toggleTheme, isDark } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
