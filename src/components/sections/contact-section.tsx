@@ -81,7 +81,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </h3>
 
             {/* Address Box */}
-            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-border-muted/10 hover:border-accent-blue/20 rounded-2xl transition-all">
               <div className="flex flex-shrink-0 justify-center items-center border border-accent-blue/20 rounded-xl w-10 h-10 bg-accent-blue/10 text-accent-blue">
                 <MapPin className="w-5 h-5" />
               </div>
@@ -96,7 +96,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Email Box */}
-            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-border-muted/10 hover:border-accent-blue/20 rounded-2xl transition-all">
               <div className="flex flex-shrink-0 justify-center items-center border border-accent-cyan/20 rounded-xl w-10 h-10 bg-accent-cyan/10 text-accent-cyan">
                 <Mail className="w-5 h-5" />
               </div>
@@ -114,7 +114,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Phone/WhatsApp Box */}
-            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-border-muted/10 hover:border-accent-blue/20 rounded-2xl transition-all">
               <div className="flex flex-shrink-0 justify-center items-center border border-accent-purple/20 rounded-xl w-10 h-10 bg-accent-purple/10 text-accent-purple">
                 <Phone className="w-5 h-5" />
               </div>
@@ -132,7 +132,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </div>
 
             {/* Working Hours Box */}
-            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-white/5 hover:border-accent-blue/20 rounded-2xl transition-all">
+            <div className="flex items-start gap-4 bg-background-tertiary/40 backdrop-blur-sm p-5 border border-border-muted/10 hover:border-accent-blue/20 rounded-2xl transition-all">
               <div className="flex flex-shrink-0 justify-center items-center border border-accent-magenta/20 rounded-xl w-10 h-10 bg-accent-magenta/10 text-accent-magenta">
                 <Clock className="w-5 h-5" />
               </div>
@@ -193,7 +193,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="bg-background-tertiary/40 px-4 py-3 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all"
+                  className="bg-background-tertiary/40 px-4 py-3 border border-border-muted/10 hover:border-border-muted/20 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all"
                   placeholder={language === "ar" ? "اسمك الكريم" : "Your name"}
                 />
               </div>
@@ -212,7 +212,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   required
                   value={formEmail}
                   onChange={(e) => setFormEmail(e.target.value)}
-                  className="bg-background-tertiary/40 px-4 py-3 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all"
+                  className="bg-background-tertiary/40 px-4 py-3 border border-border-muted/10 hover:border-border-muted/20 focus:border-accent-blue/50 rounded-xl focus:outline-none w-full text-text-primary text-sm transition-all"
                   placeholder="example@mail.com"
                 />
               </div>

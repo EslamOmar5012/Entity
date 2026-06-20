@@ -75,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="flex justify-center items-center bg-background-card border border-white/5 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-white transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
                 >
                   <Facebook className="w-4 h-4" />
                 </a>
@@ -86,7 +86,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter"
-                  className="flex justify-center items-center bg-background-card border border-white/5 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-white transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
                 >
                   <Twitter className="w-4 h-4" />
                 </a>
@@ -97,7 +97,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="flex justify-center items-center bg-background-card border border-white/5 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-white transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
@@ -108,7 +108,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="flex justify-center items-center bg-background-card border border-white/5 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-white transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>

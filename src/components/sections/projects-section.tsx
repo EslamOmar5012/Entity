@@ -58,7 +58,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   "px-4 py-2 border rounded-xl font-bold text-xs md:text-sm tracking-wider transition-all select-none",
                   isActive
                     ? "bg-accent-blue text-white shadow-glow-blue border-accent-blue/50"
-                    : "bg-background-card border-white/5 text-text-secondary hover:text-white hover:border-white/10 hover:bg-background-tertiary",
+                    : "bg-background-card border-border-muted/10 text-text-secondary hover:text-text-heading hover:border-border-muted/20 hover:bg-background-tertiary",
                 )}
               >
                 {label}
