@@ -106,7 +106,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
 
                   {/* Bottom Text Content (Visible default + full description on hover) */}
                   <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col justify-end min-h-[50%] bg-gradient-to-t from-black/90 to-transparent z-10 text-left rtl:text-right">
-                    <h3 className="text-xl font-bold text-white mb-2 tracking-wide group-hover:text-text-cyan transition-colors select-none">
+                    <h3 className="text-xl font-bold text-text-heading mb-2 tracking-wide group-hover:text-text-cyan transition-colors select-none">
                       {title}
                     </h3>
                     

@@ -67,7 +67,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
             variants={fadeInUp}
             className="lg:col-span-6"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight select-none">
+            <h3 className="text-2xl md:text-3xl font-bold text-text-heading mb-6 leading-tight select-none">
               {title}
             </h3>
             <p className="text-sm md:text-base text-text-secondary leading-relaxed mb-6 font-medium">
@@ -114,7 +114,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center border ${pillar.glowColor}`}>
                     <PillarIcon className="w-5 h-5" />
                   </div>
-                  <h4 className="text-lg font-bold text-white tracking-wide">
+                  <h4 className="text-lg font-bold text-text-heading tracking-wide">
                     {t(pillar.titleKey as any)}
                   </h4>
                 </div>

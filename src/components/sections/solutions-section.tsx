@@ -151,7 +151,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ solutions })
                             </div>
 
                             {/* Card title */}
-                            <h3 className="text-xl font-bold text-white tracking-wide">
+                            <h3 className="text-xl font-bold text-text-heading tracking-wide">
                               {title}
                             </h3>
 

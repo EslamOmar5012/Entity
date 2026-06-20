@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand Info Column */}
           <div className="flex flex-col gap-4">
-            <span className="text-2xl font-black tracking-wider text-white text-glow-blue select-none">
+            <span className="text-2xl font-black tracking-wider text-text-heading text-glow-blue select-none">
               ENTITY
             </span>
             <p className="text-sm text-text-secondary leading-relaxed max-w-xs">
@@ -110,7 +110,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Quick Links Column */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-white font-bold text-base tracking-wide border-l-2 border-accent-cyan pl-2 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-2">
+            <h3 className="text-text-heading font-bold text-base tracking-wide border-l-2 border-accent-cyan pl-2 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-2">
               {language === 'ar' ? 'روابط سريعة' : 'Quick Navigation'}
             </h3>
             <nav className="flex flex-col gap-2">
@@ -128,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Business Hours Column */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-white font-bold text-base tracking-wide border-l-2 border-accent-cyan pl-2 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-2">
+            <h3 className="text-text-heading font-bold text-base tracking-wide border-l-2 border-accent-cyan pl-2 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-2">
               {language === 'ar' ? 'ساعات العمل' : 'Business Hours'}
             </h3>
             <div className="text-sm text-text-secondary leading-relaxed flex flex-col gap-2">
@@ -150,7 +150,7 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Contact Details Column */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-white font-bold text-base tracking-wide border-l-2 border-accent-cyan pl-2 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-2">
+            <h3 className="text-text-heading font-bold text-base tracking-wide border-l-2 border-accent-cyan pl-2 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-2">
               {language === 'ar' ? 'بيانات الاتصال' : 'Contact Credentials'}
             </h3>
             <div className="flex flex-col gap-3 text-sm text-text-secondary">

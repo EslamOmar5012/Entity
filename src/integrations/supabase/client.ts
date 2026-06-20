@@ -1,14 +1,21 @@
 import { createClient } from '@supabase/supabase-js';
-import { Database } from '../../types/database';
+import type { Database } from '../../types/database';
 
+const useSupabase = import.meta.env.VITE_USE_SUPABASE === 'true';
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-// Avoid crashing if keys are not configured yet, as this is a fallback architecture
-export const supabase = supabaseUrl && supabaseAnonKey 
-  ? createClient<Database>(supabaseUrl, supabaseAnonKey)
-  : null;
+// Supports both the new Publishable Key format (sb_publishable_*) introduced in 2025
+// and the legacy Anon JWT key format (VITE_SUPABASE_ANON_KEY) for backward compatibility.
+const supabaseKey =
+  import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ||
+  import.meta.env.VITE_SUPABASE_ANON_KEY ||
+  '';
 
-export const isSupabaseConfigured = (): boolean => {
-  return !!supabase;
-};
+// Only create the client if Supabase is explicitly enabled AND credentials are present.
+// Falls back to null so all services gracefully use static mock data instead.
+export const supabase =
+  useSupabase && supabaseUrl && supabaseKey
+    ? createClient<Database>(supabaseUrl, supabaseKey)
+    : null;
+
+export const isSupabaseConfigured = (): boolean => !!supabase;

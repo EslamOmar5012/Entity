@@ -10,7 +10,7 @@ interface WhatsappFloatProps {
 }
 
 export const WhatsappFloat: React.FC<WhatsappFloatProps> = ({
-  phone = '201000000000',
+  phone = '+201063209774',
   message = 'Hello ENTITY, I would like to inquire about your smart solutions.'
 }) => {
   const { t } = useLanguage();

@@ -69,7 +69,7 @@ export const ClientsSection: React.FC<ClientsSectionProps> = ({ clients }) => {
                     </span>
 
                     {/* Sector name */}
-                    <h3 className="text-lg font-bold text-white tracking-wide">
+                    <h3 className="text-lg font-bold text-text-heading tracking-wide">
                       {language === 'ar' 
                         ? (client.id === 'cli-res' ? 'المجمعات والفلل السكنية' : 
                            client.id === 'cli-ret' ? 'صالات العرض والتجزئة' : 

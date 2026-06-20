@@ -62,7 +62,7 @@ export const WhyUsSection: React.FC<WhyUsSectionProps> = ({ items }) => {
                     <Icon className="w-6 h-6" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white tracking-wide">
+                  <h3 className="text-xl font-bold text-text-heading tracking-wide">
                     {title}
                   </h3>
                   

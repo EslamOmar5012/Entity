@@ -71,7 +71,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             variants={fadeInUp}
             className="lg:col-span-5 flex flex-col gap-6"
           >
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight">
+            <h3 className="text-xl md:text-2xl font-bold text-text-heading mb-2 leading-tight">
               {language === 'ar' ? 'معلومات الاتصال المباشرة' : 'Direct Contact Nodes'}
             </h3>
 
@@ -82,7 +82,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
                 <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{t('contactInfoAddress')}</span>
-                <span className="text-sm font-semibold text-white leading-relaxed">{address}</span>
+                <span className="text-sm font-semibold text-text-heading leading-relaxed">{address}</span>
               </div>
             </div>
 
@@ -93,7 +93,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
                 <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{t('contactInfoEmail')}</span>
-                <a href={`mailto:${email}`} className="text-sm font-semibold text-white hover:text-accent-cyan transition-colors break-all">{email}</a>
+                <a href={`mailto:${email}`} className="text-sm font-semibold text-text-heading hover:text-accent-cyan transition-colors break-all">{email}</a>
               </div>
             </div>
 
@@ -104,7 +104,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
                 <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{t('contactInfoPhone')}</span>
-                <a href={`tel:${phone}`} className="text-sm font-semibold text-white hover:text-accent-purple transition-colors">{phone}</a>
+                <a href={`tel:${phone}`} className="text-sm font-semibold text-text-heading hover:text-accent-purple transition-colors">{phone}</a>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
               </div>
               <div className="flex flex-col gap-1 text-left rtl:text-right">
                 <span className="text-xs text-text-secondary uppercase font-bold tracking-widest">{language === 'ar' ? 'ساعات الدعم' : 'Operational Status'}</span>
-                <span className="text-sm font-semibold text-white leading-relaxed">
+                <span className="text-sm font-semibold text-text-heading leading-relaxed">
                   {language === 'ar' ? 'السبت - الخميس (9ص - 9م)' : 'Sat - Thu: 9:00 AM - 9:00 PM'}
                 </span>
               </div>
@@ -133,7 +133,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             {/* Border glow */}
             <div className="absolute inset-0 rounded-3xl border border-accent-blue/20 opacity-30 pointer-events-none -z-10 shadow-glass" />
             
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-6 leading-tight text-left rtl:text-right">
+            <h3 className="text-xl md:text-2xl font-bold text-text-heading mb-6 leading-tight text-left rtl:text-right">
               {t('contactGetInTouch')}
             </h3>
 
@@ -160,7 +160,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-white text-sm transition-all"
+                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-text-primary text-sm transition-all"
                   placeholder={language === 'ar' ? 'اسمك الكريم' : 'Your name'}
                 />
               </div>
@@ -176,7 +176,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   required
                   value={formEmail}
                   onChange={(e) => setFormEmail(e.target.value)}
-                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-white text-sm transition-all"
+                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-text-primary text-sm transition-all"
                   placeholder="example@mail.com"
                 />
               </div>
@@ -192,7 +192,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-white text-sm transition-all resize-none"
+                  className="w-full bg-background-tertiary/40 border border-white/5 hover:border-white/10 focus:border-accent-blue/50 focus:outline-none px-4 py-3 rounded-xl text-text-primary text-sm transition-all resize-none"
                   placeholder={language === 'ar' ? 'تفاصيل استفسارك...' : 'Describe what you need...'}
                 />
               </div>
