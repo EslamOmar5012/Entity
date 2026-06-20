@@ -1,0 +1,11 @@
+import { Database } from '../../types/database';
+export type { Database };
+export type Row<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Row'];
+export type Insert<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Insert'];
+export type Update<T extends keyof Database['public']['Tables']> = Database['public']['Tables'][T]['Update'];
+export type { Project } from '../../types/project';
+export type { Solution } from '../../types/solution';
+export type { Client } from '../../types/client';
+export type { SiteSettings, WhyUsItem, AboutContent } from '../../types/company';
+export type { Language } from '../../types/content';
+export type { TranslationKeys } from '../../i18n/types';

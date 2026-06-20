@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #030712;
+    color: #F3F4F6;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background-primary text-text-primary selection:bg-accent-blue selection:text-white;
+  }
+
+  /* Custom Scrollbar for premium feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1F2937;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+    border: 1px solid rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Digital futuristic background grid */
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center center;
+}
+
+.cyber-grid-radial {
+  background: radial-gradient(circle 800px at 50% 200px, rgba(37, 99, 235, 0.15), transparent 80%);
+}
+
+.cyber-grid-radial-purple {
+  background: radial-gradient(circle 600px at 50% 300px, rgba(124, 58, 237, 0.12), transparent 70%);
+}
+
+/* Glow border effect */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.05), rgba(124, 58, 237, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Active text glow */
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5), 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.5), 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(7, 13, 25, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
