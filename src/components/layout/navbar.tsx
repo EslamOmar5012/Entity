@@ -13,7 +13,7 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
   const { t, language, toggleLanguage } = useLanguage();
-  const {  toggleTheme, isDark } = useTheme();
+  const { toggleTheme, isDark } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
   const handleNavLinkClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80;
+      const offset = 90;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = el.getBoundingClientRect().top;
       const offsetPosition = elementRect - bodyRect - offset;
@@ -41,42 +41,33 @@ export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-3',
+          'fixed top-0 left-0 right-0 z-40 transition-all duration-300',
           isScrolled
-            ? 'bg-background-primary/85 backdrop-blur-md border-b border-border-glow/20 shadow-glass'
-            : 'bg-transparent'
+            ? 'bg-background-primary/95 border-b border-border-muted shadow-sm py-3'
+            : 'bg-transparent py-5'
         )}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
 
-          {/* ── Logo Brand ── */}
+          {/* ── Brand Name Logo (Plain Serif Font) ── */}
           <button
             onClick={() => handleNavLinkClick('home')}
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="ENTITY — Go to top"
           >
-            {/* Actual logo image */}
-            <div className="relative w-10 h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+            <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center rounded-full border border-accent-blue/30 bg-background-tertiary">
               <img
                 src="/logo.svg"
-                alt="ENTITY Smart Solutions logo"
-                className="w-full h-full object-contain rounded-full shadow-glow-blue"
+                alt="ENTITY logo"
+                className="w-6 h-6 object-contain rounded-full"
                 onError={e => {
-                  // Fallback if logo file not found
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
               />
-              {/* Ping halo on hover */}
-              <div className="absolute inset-0 rounded-full bg-accent-blue/10 animate-ping pointer-events-none opacity-0 group-hover:opacity-100 -z-10" />
             </div>
-            <div className="flex flex-col items-start leading-tight">
-              <span className="text-xl font-black tracking-widest text-text-heading select-none">
-                ENTITY
-              </span>
-              <span className="text-[9px] font-semibold tracking-[0.25em] text-accent-cyan uppercase select-none -mt-0.5">
-                Smart Solutions
-              </span>
-            </div>
+            <span className="text-2xl font-black tracking-widest text-text-heading font-serif select-none">
+              ENTITY
+            </span>
           </button>
 
           {/* ── Desktop Navigation ── */}
@@ -88,16 +79,13 @@ export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
                   key={link.id}
                   onClick={() => handleNavLinkClick(link.id)}
                   className={cn(
-                    'text-sm font-semibold tracking-wide transition-all py-1.5 px-3 rounded-lg relative',
+                    'text-sm font-semibold tracking-wide transition-all relative py-1',
                     isActive
-                      ? 'text-accent-cyan text-glow-cyan'
+                      ? 'text-text-heading font-bold'
                       : 'text-text-secondary hover:text-text-heading'
                   )}
                 >
                   {t(link.labelKey)}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full bg-accent-cyan shadow-glow-cyan" />
-                  )}
                 </button>
               );
             })}
@@ -111,10 +99,10 @@ export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
               onClick={toggleTheme}
               title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-              className="w-9 h-9 rounded-xl border border-border-glow/20 bg-background-card hover:bg-background-tertiary hover:border-accent-blue/30 text-text-secondary hover:text-text-heading flex items-center justify-center transition-all"
+              className="w-9 h-9 rounded-lg border border-border-muted/20 bg-background-card hover:bg-background-tertiary text-text-secondary hover:text-text-heading flex items-center justify-center transition-all"
             >
               {isDark
-                ? <Sun className="w-4 h-4 text-amber-400" />
+                ? <Sun className="w-4 h-4 text-amber-500" />
                 : <Moon className="w-4 h-4 text-accent-blue" />
               }
             </button>
@@ -122,18 +110,18 @@ export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-border-glow/20 bg-background-card hover:bg-background-tertiary hover:border-accent-blue/30 text-text-secondary hover:text-text-heading text-xs font-bold tracking-wider uppercase transition-all"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-lg border border-border-muted/20 bg-background-card hover:bg-background-tertiary text-text-secondary hover:text-text-heading text-xs font-bold uppercase transition-all"
             >
               <Globe className="w-4 h-4 text-accent-cyan" />
               <span>{language === 'en' ? 'AR' : 'EN'}</span>
             </button>
 
-            {/* Linktree CTA */}
+            {/* Linktree CTA Button (Solid Dark Navy Background) */}
             <a
               href={linktreeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2 rounded-xl bg-accent-blue text-white shadow-glow-blue border border-accent-blue/50 text-xs font-bold tracking-wide hover:bg-accent-blue/90 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="px-6 py-2 rounded-lg bg-border-glow text-white text-xs font-bold uppercase tracking-wider hover:bg-border-glow/90 active:scale-[0.98] transition-all shadow-sm"
             >
               Linktree
             </a>
@@ -142,10 +130,10 @@ export const Navbar: React.FC<NavbarProps> = ({ linktreeUrl }) => {
           {/* ── Mobile Menu Toggle ── */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="lg:hidden p-2 rounded-xl bg-background-card border border-border-glow/20 text-text-secondary hover:bg-background-tertiary hover:border-accent-blue/20"
+            className="lg:hidden p-2 rounded-lg bg-background-card border border-border-muted/10 text-text-secondary hover:bg-background-tertiary transition-all"
             aria-label="Open navigation menu"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           </button>
         </div>
       </header>

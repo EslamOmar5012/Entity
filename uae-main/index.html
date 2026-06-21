@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAB Wood Industries - Premium Wood Solutions & Manufacturing</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="UAB Wood Industries offers premium wood solutions, custom manufacturing, and high-quality wooden products for individuals and businesses. Expert craftsmanship since 2008.">
+  <meta name="keywords" content="wood industry, wooden products, custom wood manufacturing, wooden doors, wooden windows, wood decor, UAB wood, Saudi Arabia wood factory">
+  <meta name="author" content="UAB Wood Industries">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="UAB Wood Industries - Premium Wood Solutions">
+  <meta property="og:description" content="Expert wood manufacturing and custom solutions for all your woodworking needs. Quality craftsmanship since 2008.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://uabwood.com">
+  <meta property="og:image" content="./images/400_68a4d199dfd24.png">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UAB Wood Industries">
+  <meta name="twitter:description" content="Premium wood solutions and custom manufacturing">
+  <meta name="twitter:image" content="./images/400_68a4d199dfd24.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./images/400_68a4d199dfd24.png">
+  <link rel="apple-touch-icon" href="./images/400_68a4d199dfd24.png">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+/>
+  <!-- Google Fonts for Arabic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Lemonada:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for English -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#033058',
+            secondary: '#044a72',
+            accent: '#3498db'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Keep Bootstrap for some components temporarily -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style/style.css">
+</head>
+<body class="rtl-layout">
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Tailwind Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-b border-primary/10 shadow-lg">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
+          <img src="./images/400_68a4d199dfd24.png" alt="UAB Wood Industries Logo" class="h-12 w-auto">
+        </a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex items-center space-x-8">
+          <a href="#home" class="nav-link-tw" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+          <a href="#about-us" class="nav-link-tw" data-ar="من نحن" data-en="About">من نحن</a>
+          <a href="#products" class="nav-link-tw" data-ar="المنتجات" data-en="Products">المنتجات</a>
+          <a href="#services" class="nav-link-tw" data-ar="الخدمات" data-en="Services">الخدمات</a>
+          <a href="#portfolio" class="nav-link-tw" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a>
+          <a href="#contact-us" class="nav-link-tw" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+          <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="hidden lg:hidden mt-4 pb-4 border-t border-gray-200">
+        <div class="flex flex-col space-y-2 mt-4">
+          <a href="#home" class="mobile-nav-link-tw" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+          <a href="#about-us" class="mobile-nav-link-tw" data-ar="من نحن" data-en="About">من نحن</a>
+          <a href="#products" class="mobile-nav-link-tw" data-ar="المنتجات" data-en="Products">المنتجات</a>
+          <a href="#services" class="mobile-nav-link-tw" data-ar="الخدمات" data-en="Services">الخدمات</a>
+          <a href="#portfolio" class="mobile-nav-link-tw" data-ar="أعمالنا" data-en="Portfolio">أعمالنا</a>
+          <a href="#contact-us" class="mobile-nav-link-tw" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Floating Language Switcher - Always Visible -->
+  <div class="floating-language-switcher">
+    <div class="lang-switcher-container">
+      <button class="lang-btn-tw active" data-lang="ar">عربي</button>
+      <button class="lang-btn-tw" data-lang="en">EN</button>
+    </div>
+  </div>
+
+  <section id="home" class="container-fluid hero-section pt-20">
+    <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="floating-elements d-none d-lg-block">
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+            <div class="floating-circle"></div>
+        </div>
+        
+        <div class="container">
+            <div class="row align-items-center hero-row">
+                <div class="col-12 col-lg-6 text-center mb-5 mb-lg-0 hero-logo">
+                    <div class="image-container">
+                        <img src="./images/400_68a4d199dfd24.png" alt="UAB Wood Industries Hero Image" class="hero-image w-100">
+                    </div>
+                </div>
+                
+                <div class="col-12 col-lg-6 text-lg-start hero-content">
+                    <h2 class="text-glow" data-ar="جودة تليق بمشاريعك" data-en="Quality That Suits Your Projects">جودة تليق بمشاريعك</h2>
+                    <p class="hero-subtitle" data-ar="مصنع UAB للأخشاب يقدم أفضل حلول الأخشاب عالية الجودة، لتلبية احتياجات الأفراد والشركات بأعلى معايير الصناعة." data-en="UAB Wood Factory offers the best high-quality wood solutions to meet the needs of individuals and companies with the highest industry standards.">
+                        مصنع UAB للأخشاب يقدم أفضل حلول الأخشاب عالية الجودة، لتلبية احتياجات الأفراد والشركات بأعلى معايير الصناعة.
+                    </p>
+                    
+                    <!-- Enhanced CTA Buttons -->
+                    <div class="cta-buttons">
+                        <a href="#contact-us" class="btn-primary-custom" data-ar="ابدأ مشروعك" data-en="Start Your Project">
+                            <i class="fas fa-rocket me-2"></i>
+                            <span data-ar="ابدأ مشروعك" data-en="Start Your Project">ابدأ مشروعك</span>
+                        </a>
+                        <a href="#portfolio" class="btn-outline-custom" data-ar="شاهد أعمالنا" data-en="View Our Work">
+                            <i class="fas fa-eye me-2"></i>
+                            <span data-ar="شاهد أعمالنا" data-en="View Our Work">شاهد أعمالنا</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator" onclick="scrollToSection('about-us')">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+  <section id="about-us" class="about-us">
+        <div class="floating-shapes ">
+            <div class="shape "></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="container">
+            <div class="about-card-container">
+                <div class="about-card">
+                    <div class="about-text-section">
+                        <h3 class="about-title" data-ar="من نحن" data-en="About Us">من نحن</h3>
+                        <p class="about-text" data-ar="نحن في UAB نمتلك خبرة طويلة في صناعة وتوريد منتجات الأخشاب المتميزة. هدفنا تقديم منتجات متينة، آمنة، وذات تصميم مبتكر تلبي تطلعات عملائنا في مختلف القطاعات." data-en="At UAB, we have extensive experience in manufacturing and supplying distinguished wood products. Our goal is to provide durable, safe, and innovative design products that meet our clients' aspirations across various sectors">نحن في UAB نمتلك خبرة طويلة في صناعة وتوريد منتجات الأخشاب المتميزة. هدفنا تقديم منتجات متينة، آمنة، وذات تصميم مبتكر تلبي تطلعات عملائنا في مختلف القطاعات.</p> 
+                    </div>
+                    <div class="about-image-section">
+                        <img src="./images/aboutus.jpeg" alt="About UAB Wood Industries" class="about-image img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <section id="products">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+
+        <div class="container text-center">
+            <!-- Section Header -->
+            <h2 class="section-title fade-in" data-ar="منتجاتنا" data-en="Our Products">منتجاتنا</h2>
+            <p class="section-subtitle fade-in" data-ar="نقدم مجموعة واسعة من المنتجات المتميزة" data-en="We offer a wide range of distinguished products">نقدم مجموعة واسعة من المنتجات المتميزة</p>
+
+            <!-- Products Grid -->
+            <div class="row g-4">
+                <!-- منتج 1 -->
+                <a class="col-lg-3 col-md-6 text-decoration-none" href="#contact-us">
+                    <div class="product-card fade-in-up">
+                        <i class="fas fa-th-large product-icon icon-wood"></i>
+                        <h5 class="product-title" data-ar="ألواح خشبية بجميع المقاسات" data-en="Wooden Boards in All Sizes">ألواح خشبية بجميع المقاسات</h5>
+                    </div>
+                </a>
+
+                <!-- منتج 2 -->
+                   <!-- منتج 1 -->
+                <a class="col-lg-3 col-md-6 text-decoration-none" href="#contact-us">
+                    <div class="product-card fade-in-up">
+                        <i class="fas fa-brush product-icon icon-design"></i>
+                        <h5 class="product-title" data-ar="خشب ديكور وتشطيبات" data-en="Decorative Wood and Finishes">خشب ديكور وتشطيبات</h5>
+                    </div>
+                  </a>
+
+                <!-- منتج 3 -->
+                <a class="col-lg-3 col-md-6 text-decoration-none" href="#contact-us">
+                    <div class="product-card fade-in-up">
+                        <i class="fas fa-door-closed product-icon icon-door"></i>
+                        <h5 class="product-title" data-ar="أبواب ونوافذ خشبية عالية الجودة" data-en="High-Quality Wooden Doors and Windows">أبواب ونوافذ خشبية عالية الجودة</h5>
+                    </div>
+                </a>
+
+                <!-- منتج 4 -->
+                <a class="col-lg-3 col-md-6 text-decoration-none" href="#contact-us">
+                    <div class="product-card fade-in-up">
+                        <i class="fas fa-star product-icon icon-custom"></i>
+                        <h5 class="product-title" data-ar="منتجات مخصصة حسب طلب العميل" data-en="Custom Products According to Customer Requirements">منتجات مخصصة حسب طلب العميل</h5>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Contact Button -->
+            <a href="#contact" class="contact-btn pulse fade-in-up">
+                <i class="fas fa-phone-alt me-2"></i>
+                <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
+            </a>
+        </div>
+    </section>
+
+ <section id="services">
+        <div class="floating-shapes ">
+            <div class="shape "></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="container text-center">
+            <h2 class="section-title fade-in" data-ar="خدماتنا" data-en="Our Services">خدماتنا</h2>
+            <p class="section-subtitle fade-in" data-ar="كل ما تحتاجه في مكان واحد" data-en="Everything You Need in One Place">كل ما تحتاجه في مكان واحد</p>
+            
+            <div class="row g-4">
+                <!-- كارد 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-cogs service-icon icon-primary"></i>
+                            <h5 class="service-title" data-ar="تصنيع حسب الطلب" data-en="Custom Manufacturing">تصنيع حسب الطلب</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارد 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-truck service-icon icon-success"></i>
+                            <h5 class="service-title" data-ar="توريد للأفراد والمشاريع" data-en="Supply for Individuals and Projects">توريد للأفراد والمشاريع</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارد 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-lightbulb service-icon icon-warning"></i>
+                            <h5 class="service-title" data-ar="استشارات لاختيار الخشب المناسب لمشروعك" data-en="Consultations for Choosing the Right Wood for Your Project">استشارات لاختيار الخشب المناسب لمشروعك</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارد 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-warehouse service-icon icon-info"></i>
+                            <h5 class="service-title" data-ar="توريد بالجملة لجميع المشاريع الإنشائية والتجارية" data-en="Wholesale Supply for All Construction and Commercial Projects">توريد بالجملة لجميع المشاريع الإنشائية والتجارية</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارد 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-file-contract service-icon icon-danger"></i>
+                            <h5 class="service-title" data-ar="عقود سنوية بأسعار مميزة للشركات" data-en="Annual Contracts with Special Prices for Companies">عقود سنوية بأسعار مميزة للشركات</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارد 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-industry service-icon icon-secondary"></i>
+                            <h5 class="service-title" data-ar="تصنيع حسب المواصفات القياسية أو حسب الطلب" data-en="Manufacturing According to Standard Specifications or Custom Requirements">تصنيع حسب المواصفات القياسية أو حسب الطلب</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- كارد 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card animate-in">
+                        <div>
+                            <i class="fas fa-shipping-fast service-icon icon-purple"></i>
+                            <h5 class="service-title" data-ar="خدمة لوجستية متكاملة لتوصيل منتجاتك في أي مكان" data-en="Integrated Logistics Service to Deliver Your Products Anywhere">خدمة لوجستية متكاملة لتوصيل منتجاتك في أي مكان</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<section id="why-us">
+   <div class="floating-shapes ">
+            <div class="shape "></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="container text-center">
+          
+            <h2 class="section-title fade-in" data-ar="لماذا نحن الأفضل؟" data-en="Why Are We the Best?">لماذا نحن الأفضل؟</h2>
+            <p class="section-subtitle fade-in" data-ar="نحن نتميز بالخبرة والجودة والالتزام" data-en="We excel in experience, quality, and commitment">نحن نتميز بالخبرة والجودة والالتزام</p>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="features-container fade-in">
+                        
+                        <!-- الميزة الأولى -->
+                        <div class="feature-item d-flex align-items-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="feature-text" data-ar="خبرة طويلة في السوق تمتد لأكثر من 15 عاماً" data-en="Long market experience extending over 15 years">
+                                خبرة طويلة في السوق تمتد لأكثر من 15 عاماً
+                            </div>
+                        </div>
+
+                        <!-- الميزة الثانية -->
+                        <div class="feature-item d-flex align-items-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-text" data-ar="التزام صارم بالمواعيد مع ضمان التسليم في الوقت المحدد" data-en="Strict commitment to deadlines with guaranteed delivery on time">
+                                التزام صارم بالمواعيد مع ضمان التسليم في الوقت المحدد
+                            </div>
+                        </div>
+
+                        <!-- الميزة الثالثة -->
+                        <div class="feature-item d-flex align-items-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="feature-text" data-ar="جودة معتمدة تلبي المعايير العالمية مع شهادات الجودة" data-en="Certified quality meeting international standards with quality certificates">
+                                جودة معتمدة تلبي المعايير العالمية مع شهادات الجودة
+                            </div>
+                        </div>
+
+                        <!-- الميزة الرابعة -->
+                        <div class="feature-item d-flex align-items-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="feature-text" data-ar="حلول مرنة ومخصصة تناسب جميع أحجام المشاريع" data-en="Flexible and customized solutions suitable for all project sizes">
+                                حلول مرنة ومخصصة تناسب جميع أحجام المشاريع
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+ <section id="portfolio">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+
+        <div class="container text-center">
+            <h2 class="section-title fade-in" data-ar="شاهد إبداعنا" data-en="See Our Creativity">شاهد إبداعنا</h2>
+            <p class="section-subtitle fade-in" data-ar="تصفح معرض أعمالنا الذي يعكس الجودة والفخامة في كل تفصيلة، من المشاريع الكبيرة حتى أدق التفاصيل المنزلية" data-en="Browse our portfolio that reflects quality and luxury in every detail, from large projects to the finest home details">
+                تصفح معرض أعمالنا الذي يعكس الجودة والفخامة في كل تفصيلة، من المشاريع الكبيرة حتى أدق التفاصيل المنزلية
+            </p>
+
+            <div class="gallery-container fade-in">
+                <!-- Image Counter -->
+                <div class="image-counter">
+                    <span id="currentImage">1</span> / <span id="totalImages">11</span>
+                </div>
+
+                <!-- Main Carousel -->
+                <div id="portfolioCarousel" class="carousel slide main-carousel" data-bs-ride="false">
+                    <div class="carousel-inner">
+
+                        <!-- الصورة 1 -->
+                        <div class="carousel-item active">
+                            <img src="./images/1.jpeg" class="d-block w-100" alt="مشروع أثاث خشبي فاخر" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 2 -->
+                        <div class="carousel-item">
+                            <img src="./images/2.jpeg" class="d-block w-100" alt="تصميم خشبي داخلي" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 3 -->
+                        <div class="carousel-item">
+                            <img src="./images/3.jpeg" class="d-block w-100" alt="أعمال نجارة دقيقة" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 4 -->
+                        <div class="carousel-item">
+                            <img src="./images/4.jpeg" class="d-block w-100" alt="مشروع ديكور خشبي" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 5 -->
+                        <div class="carousel-item">
+                            <img src="./images/5.jpeg" class="d-block w-100" alt="تشطيبات خشبية راقية" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 6 -->
+                        <div class="carousel-item">
+                            <img src="./images/6.jpeg" class="d-block w-100" alt="أبواب ونوافذ خشبية" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 7 -->
+                        <div class="carousel-item">
+                            <img src="./images/7.jpeg" class="d-block w-100" alt="مشروع خشبي مخصص" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 8 -->
+                        <div class="carousel-item">
+                            <img src="./images/8.jpeg" class="d-block w-100" alt="أعمال خشبية فنية" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 9 -->
+                        <div class="carousel-item">
+                            <img src="./images/9.jpeg" class="d-block w-100" alt="تصميم أثاث مودرن" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 10 -->
+                        <div class="carousel-item">
+                            <img src="./images/10.jpeg" class="d-block w-100" alt="مشروع خشبي كلاسيكي" loading="lazy">
+                        </div>
+
+                        <!-- الصورة 11 -->
+                        <div class="carousel-item">
+                            <img src="./images/11.jpeg" class="d-block w-100" alt="تفاصيل خشبية راقية" loading="lazy">
+                        </div>
+
+                    </div>
+
+                    <!-- Navigation Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">السابق</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#portfolioCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">التالي</span>
+                    </button>
+
+                    <!-- Indicators -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="5"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="6"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="7"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="8"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="9"></button>
+                        <button type="button" data-bs-target="#portfolioCarousel" data-bs-slide-to="10"></button>
+                    </div>
+                </div>
+
+                <!-- Thumbnail Gallery -->
+                <div class="thumbnail-gallery">
+                    <div class="thumbnail active" data-slide="0">
+                        <img src="./images/1.jpeg" alt="صورة مصغرة 1">
+                    </div>
+                    <div class="thumbnail" data-slide="1">
+                        <img src="./images/2.jpeg" alt="صورة مصغرة 2">
+                    </div>
+                    <div class="thumbnail" data-slide="2">
+                        <img src="./images/3.jpeg" alt="صورة مصغرة 3">
+                    </div>
+                    <div class="thumbnail" data-slide="3">
+                        <img src="./images/4.jpeg" alt="صورة مصغرة 4">
+                    </div>
+                    <div class="thumbnail" data-slide="4">
+                        <img src="./images/5.jpeg" alt="صورة مصغرة 5">
+                    </div>
+                    <div class="thumbnail" data-slide="5">
+                        <img src="./images/6.jpeg" alt="صورة مصغرة 6">
+                    </div>
+                    <div class="thumbnail" data-slide="6">
+                        <img src="./images/7.jpeg" alt="صورة مصغرة 7">
+                    </div>
+                    <div class="thumbnail" data-slide="7">
+                        <img src="./images/8.jpeg" alt="صورة مصغرة 8">
+                    </div>
+                    <div class="thumbnail" data-slide="8">
+                        <img src="./images/9.jpeg" alt="صورة مصغرة 9">
+                    </div>
+                    <div class="thumbnail" data-slide="9">
+                        <img src="./images/10.jpeg" alt="صورة مصغرة 10">
+                    </div>
+                    <div class="thumbnail" data-slide="10">
+                        <img src="./images/11.jpeg" alt="صورة مصغرة 11">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox" id="lightbox">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </section>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+<section id="contact-us"class="contact-us">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title fade-in" data-ar="نحن هنا لخدمتك" data-en="We Are Here to Serve You">نحن هنا لخدمتك</h2>
+            <p class="section-subtitle fade-in" data-ar="تواصل معنا عبر الهاتف، البريد الإلكتروني، أو قم بزيارتنا للحصول على استشارة مجانية لمشروعك القادم" data-en="Contact us by phone, email, or visit us for a free consultation for your upcoming project">
+                تواصل معنا عبر الهاتف، البريد الإلكتروني، أو قم بزيارتنا للحصول على استشارة مجانية لمشروعك القادم
+            </p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+            <!-- معلومات التواصل -->
+            <div class="col-lg-6">
+                <div class="contact-card">
+                    <div class="contact-item">
+                        <div class="contact-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h6 data-ar="اتصل بنا" data-en="Call Us">اتصل بنا</h6>
+                            <p>
+                                <a href="tel:+966552057099">+966-552057099</a>
+                                <a href="tel:+966506234316">+966-506234316</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h6 data-ar="راسلنا" data-en="Email Us">راسلنا</h6>
+                            <p>
+                                <a href="mailto:INFO@UABWOOD.COM">INFO@UABWOOD.COM</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon time">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h6 data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h6>
+                            <p data-ar="من السبت إلى الخميس 08:00 ص حتى 05:00 م" data-en="Saturday to Thursday 08:00 AM until 05:00 PM">من السبت إلى الخميس 08:00 ص حتى 05:00 م</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon location">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h6 data-ar="موقعنا" data-en="Our Location">موقعنا</h6>
+                            <p data-ar="الرياض - حي السلي - شارع عباس الحسيني الرمز البريدي: 14322 - رقم المبنى 3558" data-en="Riyadh - Al-Sulay District - Abbas Al-Husseini Street Postal Code: 14322 - Building No. 3558">
+                                الرياض - حي السلي - شارع عباس الحسيني
+                                الرمز البريدي: 14322 - رقم المبنى 3558
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- الخريطة -->
+            <div class="col-lg-6">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.711111111!2d46.850000!3d24.750000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDQ1JzAwLjAiTiA0NsKwNTEnMDAuMCJF!5e0!3m2!1sar!2ssa!4v1234567890"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Simple Footer -->
+<footer class="footer-simple">
+  <div class="container">
+    <div class="footer-content-simple">
+      <!-- Logo -->
+      <div class="footer-logo-simple">
+        <img src="./images/400_68a4d199dfd24.png" alt="UAB Wood Industries Logo" class="logo-simple">
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="footer-contact-simple">
+        <div class="contact-item-simple">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:INFO@UABWOOD.COM">INFO@UABWOOD.COM</a>
+        </div>
+        <div class="contact-item-simple">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+966552057099">+966-552057099</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Smooth scrolling for navigation links (only for internal page links)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerHeight = document.querySelector('header').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Fade-in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+
+        // Carousel and thumbnail functionality
+        const carousel = document.getElementById('portfolioCarousel');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const currentImageSpan = document.getElementById('currentImage');
+        let currentSlide = 0;
+
+        // Thumbnail click handlers
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                carouselInstance.to(index);
+            });
+        });
+
+        // Update active thumbnail and counter
+        carousel.addEventListener('slide.bs.carousel', (e) => {
+            currentSlide = e.to;
+            
+            // Update thumbnails
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update counter
+            currentImageSpan.textContent = currentSlide + 1;
+        });
+
+        // Lightbox functionality
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Add click event to carousel images for lightbox
+        document.querySelectorAll('.carousel-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                openLightbox(img.src);
+            });
+            img.style.cursor = 'pointer';
+        });
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation for carousel
+        document.addEventListener('keydown', (e) => {
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            if (e.key === 'ArrowLeft') {
+                carouselInstance.prev();
+            } else if (e.key === 'ArrowRight') {
+                carouselInstance.next();
+            }
+        });
+
+        // Ensure carousel works consistently in RTL and LTR
+        function initializeCarousel() {
+            const carousel = document.getElementById('portfolioCarousel');
+            if (carousel) {
+                // Force carousel to work consistently regardless of RTL/LTR
+                carousel.style.direction = 'ltr';
+                
+                // Ensure controls work the same way
+                const prevButton = carousel.querySelector('.carousel-control-prev');
+                const nextButton = carousel.querySelector('.carousel-control-next');
+                
+                if (prevButton && nextButton) {
+                    prevButton.addEventListener('click', () => {
+                        const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                        carouselInstance.prev();
+                    });
+                    
+                    nextButton.addEventListener('click', () => {
+                        const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+                        carouselInstance.next();
+                    });
+                }
+            }
+        }
+
+        // Initialize carousel when page loads
+        document.addEventListener('DOMContentLoaded', initializeCarousel);
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            if (touchEndX < touchStartX - 50) {
+                carouselInstance.next();
+            }
+            if (touchEndX > touchStartX + 50) {
+                carouselInstance.prev();
+            }
+        }
+
+        // Auto-pause carousel on hover
+        carousel.addEventListener('mouseenter', () => {
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            if (carouselInstance) carouselInstance.pause();
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            const carouselInstance = bootstrap.Carousel.getInstance(carousel);
+            if (carouselInstance) carouselInstance.cycle();
+        });
+        
+        // Language switching functionality
+        let currentLanguage = 'ar'; // Default language is Arabic
+        
+        // Function to switch language
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            
+            // Update language buttons
+            document.querySelectorAll('.lang-btn-tw').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+            
+            // Update document direction and body classes
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = 'ar';
+                document.body.classList.remove('ltr-layout');
+                document.body.classList.add('rtl-layout');
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = 'en';
+                document.body.classList.remove('rtl-layout');
+                document.body.classList.add('ltr-layout');
+            }
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-ar][data-en]').forEach(element => {
+                if (lang === 'ar') {
+                    element.textContent = element.getAttribute('data-ar');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Store language preference
+            localStorage.setItem('preferredLanguage', lang);
+        }
+        
+        // Initialize language switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loading overlay
+            setTimeout(() => {
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingOverlay.style.display = 'none';
+                    }, 500);
+                }
+            }, 1000);
+
+            // Check for saved language preference
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang) {
+                switchLanguage(savedLang);
+            } else {
+                // Set default language and layout
+                switchLanguage('ar');
+            }
+            
+            // Add click event listeners to language buttons
+            document.querySelectorAll('.lang-btn-tw').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                });
+            });
+            
+            // Mobile menu functionality
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu when clicking on links
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Handle image loading
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', function() {
+                        this.classList.add('loaded');
+                    });
+                    img.addEventListener('error', function() {
+                        this.style.display = 'none';
+                    });
+                }
+            });
+
+            // Add scroll-triggered animations
+            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+            const animationObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            animatedElements.forEach(el => {
+                animationObserver.observe(el);
+            });
+
+            // Back to top button functionality
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('visible');
+                    } else {
+                        backToTopBtn.classList.remove('visible');
+                    }
+                });
+            }
+
+            // Progress bar functionality
+            const progressBar = document.getElementById('progressBar');
+            if (progressBar) {
+                window.addEventListener('scroll', () => {
+                    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollPercent = (scrollTop / scrollHeight) * 100;
+                    progressBar.style.width = scrollPercent + '%';
+                });
+            }
+        });
+        
+        // Scroll functions
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToSection(sectionId) {
+            const target = document.getElementById(sectionId);
+            if (target) {
+                const headerHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = target.offsetTop - headerHeight - 20;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+</script>
+
+
+</body>
+</html>

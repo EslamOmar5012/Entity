@@ -14,7 +14,6 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({ value, label }) => {
   useEffect(() => {
     if (!isInView) return;
 
-    // Parse the numerical portion of the value
     const numericMatch = value.match(/\d+/);
     if (!numericMatch) {
       setDisplayValue(value);
@@ -26,11 +25,11 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({ value, label }) => {
     const prefix = value.split(numericMatch[0])[0] || '';
 
     let start = 0;
-    const duration = 2000; // 2 seconds
-    const stepTime = Math.max(Math.floor(duration / targetNum), 20);
+    const duration = 1800; // 1.8 seconds
+    const stepTime = Math.max(Math.floor(duration / targetNum), 15);
 
     const timer = setInterval(() => {
-      start += Math.ceil(targetNum / 35); // incremental step
+      start += Math.ceil(targetNum / 25); // incremental step
       if (start >= targetNum) {
         clearInterval(timer);
         setDisplayValue(value);
@@ -43,14 +42,16 @@ export const StatsCounter: React.FC<StatsCounterProps> = ({ value, label }) => {
   }, [isInView, value]);
 
   return (
-    <div ref={ref} className="text-center p-6 rounded-2xl bg-background-tertiary/40 border border-border-glow/50 backdrop-blur-sm relative group overflow-hidden">
-      {/* Decorative vertical glow line */}
-      <div className="absolute left-0 top-1/4 bottom-1/4 w-[2px] bg-gradient-to-b from-accent-blue via-accent-cyan to-transparent opacity-50 group-hover:opacity-100 transition-opacity" />
-      
-      <div className="text-4xl md:text-5xl font-black text-text-cyan text-glow-cyan mb-2">
+    <div 
+      ref={ref} 
+      className="text-center p-4 bg-transparent border-none"
+    >
+      {/* Display Value (Serif Font) */}
+      <div className="text-4xl md:text-5.5xl font-black text-text-heading font-serif mb-2 leading-none">
         {displayValue}
       </div>
-      <div className="text-sm font-semibold text-text-secondary tracking-wider uppercase">
+      {/* Label (Sans Font) */}
+      <div className="text-[10px] md:text-xs font-bold text-text-secondary tracking-widest uppercase select-none leading-relaxed">
         {label}
       </div>
     </div>

@@ -12,6 +12,7 @@ export default {
           secondary: "rgb(var(--c-bg-secondary) / <alpha-value>)",
           tertiary: "rgb(var(--c-bg-tertiary)  / <alpha-value>)",
           card: "rgb(var(--c-bg-card)      / <alpha-value>)",
+          highlight: "rgb(var(--c-bg-highlight) / <alpha-value>)",
         },
         text: {
           primary: "rgb(var(--c-text-primary)   / <alpha-value>)",
@@ -24,6 +25,7 @@ export default {
           glow: "rgb(var(--c-border-glow)        / <alpha-value>)",
           purpleGlow: "rgb(var(--c-border-purple-glow) / <alpha-value>)",
           muted: "rgb(var(--c-border-muted)      / <alpha-value>)",
+          highlight: "rgb(var(--c-border-highlight) / <alpha-value>)",
         },
         // ── Fixed accent colors (identical in both themes) ──
         accent: {

@@ -8,10 +8,10 @@ export const mockProjects: Project[] = [
     description_en: 'Complete installation of smart lighting, central audio, IP camera array, and smart locks managed through a single screen.',
     description_ar: 'تركيب نظام إضاءة ذكي متكامل، صوت مركزي، شبكة كاميرات مراقبة وأقفال ذكية تدار كلياً من خلال شاشة واحدة وتطبيق هاتف.',
     category: 'smarthome',
-    cover_image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80',
+    cover_image: 'https://images.unsplash.com/photo-1558244661-d248897f7bc4?auto=format&fit=crop&w=800&q=80',
     gallery_images: [
-      'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'
+      'https://images.unsplash.com/photo-1558244661-d248897f7bc4?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'
     ],
     is_featured: true,
     sort_order: 1

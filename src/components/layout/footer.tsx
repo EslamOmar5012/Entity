@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({
   const handleNavLinkClick = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const offset = 80;
+      const offset = 90;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = el.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -52,19 +52,16 @@ export const Footer: React.FC<FooterProps> = ({
   const address = language === "ar" ? addressAr : addressEn;
 
   return (
-    <footer className="z-10 relative bg-background-secondary pt-16 pb-8 border-border-glow/10 border-t overflow-hidden">
-      {/* Decorative glows in footer background */}
-      <div className="right-0 bottom-0 -z-10 absolute blur-[80px] rounded-full w-[300px] h-[300px] bg-accent-blue/5" />
-      <div className="top-0 left-0 -z-10 absolute blur-[70px] rounded-full w-[200px] h-[200px] bg-accent-purple/5" />
-
-      <div className="mx-auto px-6 container">
-        <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-12">
+    <footer className="z-10 relative bg-[#09142c] text-white pt-16 pb-8 border-t border-slate-800 overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mb-12 text-left rtl:text-right">
+          
           {/* Brand Info Column */}
           <div className="flex flex-col gap-4">
-            <span className="font-black text-glow-blue text-text-heading text-2xl tracking-wider select-none">
+            <span className="font-extrabold text-white text-2xl tracking-wider select-none font-serif">
               ENTITY
             </span>
-            <p className="max-w-xs text-text-secondary text-sm leading-relaxed">
+            <p className="max-w-xs text-slate-400 text-sm leading-relaxed pr-2 font-sans">
               {t("heroSupportingText")}
             </p>
             {/* Social Icons */}
@@ -75,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-slate-900 border border-slate-800 rounded-lg w-9 h-9 text-slate-400 hover:text-white transition-colors"
                 >
                   <Facebook className="w-4 h-4" />
                 </a>
@@ -86,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Twitter"
-                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-slate-900 border border-slate-800 rounded-lg w-9 h-9 text-slate-400 hover:text-white transition-colors"
                 >
                   <Twitter className="w-4 h-4" />
                 </a>
@@ -97,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-slate-900 border border-slate-800 rounded-lg w-9 h-9 text-slate-400 hover:text-white transition-colors"
                 >
                   <Instagram className="w-4 h-4" />
                 </a>
@@ -108,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="flex justify-center items-center bg-background-card border border-border-muted/10 hover:border-accent-blue/30 rounded-lg w-9 h-9 text-text-secondary hover:text-text-heading transition-all hover:bg-accent-blue/15"
+                  className="flex justify-center items-center bg-slate-900 border border-slate-800 rounded-lg w-9 h-9 text-slate-400 hover:text-white transition-colors"
                 >
                   <Linkedin className="w-4 h-4" />
                 </a>
@@ -118,15 +115,15 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Quick Links Column */}
           <div className="flex flex-col gap-4">
-            <h3 className="rtl:pr-2 pl-2 rtl:pl-0 border-accent-cyan rtl:border-r-2 border-l-2 rtl:border-l-0 font-bold text-text-heading text-base tracking-wide">
-              {language === "ar" ? "روابط سريعة" : "Quick Navigation"}
+            <h3 className="font-bold text-white text-base tracking-wide uppercase font-serif">
+              {language === "ar" ? "روابط سريعة" : "Navigation"}
             </h3>
             <nav className="flex flex-col gap-2">
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => handleNavLinkClick(link.id)}
-                  className="py-1 text-text-secondary text-sm text-left rtl:text-right transition-colors hover:text-accent-cyan"
+                  className="py-1 text-slate-400 text-sm text-left rtl:text-right transition-colors hover:text-accent-cyan font-sans"
                 >
                   {t(link.labelKey)}
                 </button>
@@ -136,17 +133,17 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Business Hours Column */}
           <div className="flex flex-col gap-4">
-            <h3 className="rtl:pr-2 pl-2 rtl:pl-0 border-accent-cyan rtl:border-r-2 border-l-2 rtl:border-l-0 font-bold text-text-heading text-base tracking-wide">
+            <h3 className="font-bold text-white text-base tracking-wide uppercase font-serif">
               {language === "ar" ? "ساعات العمل" : "Business Hours"}
             </h3>
-            <div className="flex flex-col gap-2 text-text-secondary text-sm leading-relaxed">
+            <div className="flex flex-col gap-2 text-slate-400 text-sm leading-relaxed font-sans">
               <div className="flex justify-between">
                 <span>
                   {language === "ar"
                     ? "السبت - الخميس:"
                     : "Saturday - Thursday:"}
                 </span>
-                <span className="text-text-primary">9:00 AM - 9:00 PM</span>
+                <span className="text-white">9:00 AM - 9:00 PM</span>
               </div>
               <div className="flex justify-between">
                 <span>{language === "ar" ? "الجمعة:" : "Friday:"}</span>
@@ -154,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({
                   {language === "ar" ? "مغلق" : "Closed"}
                 </span>
               </div>
-              <p className="mt-2 text-text-secondary text-xs italic">
+              <p className="mt-2 text-slate-500 text-xs italic">
                 {language === "ar"
                   ? "* الدعم الفني الطارئ متاح لعملاء العقود 24/7"
                   : "* Emergency support available 24/7 for SLA contract clients."}
@@ -164,16 +161,16 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Contact Details Column */}
           <div className="flex flex-col gap-4">
-            <h3 className="rtl:pr-2 pl-2 rtl:pl-0 border-accent-cyan rtl:border-r-2 border-l-2 rtl:border-l-0 font-bold text-text-heading text-base tracking-wide">
-              {language === "ar" ? "بيانات الاتصال" : "Contact Credentials"}
+            <h3 className="font-bold text-white text-base tracking-wide uppercase font-serif">
+              {language === "ar" ? "بيانات الاتصال" : "Global Credentials"}
             </h3>
-            <div className="flex flex-col gap-3 text-text-secondary text-sm">
+            <div className="flex flex-col gap-3 text-slate-400 text-sm font-sans">
               <div className="flex items-start gap-2.5">
-                <MapPin className="flex-shrink-0 mt-0.5 w-5 h-5 text-accent-cyan" />
+                <MapPin className="flex-shrink-0 mt-0.5 w-4 h-4 text-text-cyan" />
                 <span>{address}</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="flex-shrink-0 w-5 h-5 text-accent-cyan" />
+                <Phone className="flex-shrink-0 w-4 h-4 text-text-cyan" />
                 <a
                   href={`tel:${phone}`}
                   className="hover:text-white transition-colors"
@@ -182,7 +179,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Mail className="flex-shrink-0 w-5 h-5 text-accent-cyan" />
+                <Mail className="flex-shrink-0 w-4 h-4 text-text-cyan" />
                 <a
                   href={`mailto:${email}`}
                   className="hover:text-white break-all transition-colors"
@@ -195,9 +192,9 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Divider & Copyright */}
-        <div className="flex md:flex-row flex-col justify-between items-center gap-4 pt-8 border-border-muted/10 border-t text-text-secondary text-xs">
+        <div className="flex md:flex-row flex-col justify-between items-center gap-4 pt-8 border-t border-slate-800 text-slate-500 text-xs font-sans">
           <p>{t("footerCopyright")}</p>
-          <p className="font-semibold tracking-wide text-accent-blue">
+          <p className="font-semibold tracking-wide text-text-cyan">
             {t("footerRights")}
           </p>
         </div>

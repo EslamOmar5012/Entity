@@ -33,7 +33,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       className={`flex flex-col mb-12 md:mb-16 max-w-3xl mx-auto ${alignmentClasses[align]}`}
     >
       {badge && <SectionBadge text={badge} />}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 bg-gradient-to-r from-text-primary via-text-primary to-text-secondary bg-clip-text text-transparent">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-text-heading">
         {title}
       </h2>
       <div className="w-20 h-[3px] rounded-full bg-gradient-to-r from-accent-blue via-accent-cyan to-accent-purple mb-4" />

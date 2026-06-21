@@ -27,8 +27,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
       desc_ar:
         "تتكون ENTITY من مهندسين ذوي خبرة وفنيين متخصصين يبرمجون حلول تكامل الأجهزة الذكية.",
       icon: Compass,
-      glowColor:
-        "bg-accent-blue/10 border-accent-blue/20 text-accent-blue shadow-[0_0_10px_rgba(37,99,235,0.1)]",
+      glowColor: "border-accent-blue/15 bg-background-tertiary/10 text-accent-cyan",
+      panelGlow: "hover:border-text-cyan/40 hover:bg-background-card/90",
     },
     {
       id: "mission",
@@ -38,8 +38,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
       desc_ar:
         "جعل المساحات أكثر ذكاءً وأتمتة، وبنيتكم التحتية للشبكات أكثر مرونة، وعملياتكم البرمجية مثالية.",
       icon: Shield,
-      glowColor:
-        "bg-accent-cyan/10 border-accent-cyan/20 text-accent-cyan shadow-[0_0_10px_rgba(6,182,212,0.1)]",
+      glowColor: "border-accent-cyan/15 bg-background-tertiary/10 text-accent-cyan",
+      panelGlow: "hover:border-text-cyan/40 hover:bg-background-card/90",
     },
     {
       id: "vision",
@@ -49,92 +49,91 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ content }) => {
       desc_ar:
         "أن نكون المركز الرئيسي والموثوق لحلول الأمان وتكامل الأنظمة التقنية لقطاع الأعمال بالمنطقة.",
       icon: Eye,
-      glowColor:
-        "bg-accent-purple/10 border-accent-purple/20 text-accent-purple shadow-[0_0_10px_rgba(124,58,237,0.1)]",
+      glowColor: "border-accent-purple/15 bg-background-tertiary/10 text-accent-cyan",
+      panelGlow: "hover:border-text-cyan/40 hover:bg-background-card/90",
     },
   ];
 
   return (
     <section
       id="about"
-      className="relative bg-background-secondary/10 py-20 overflow-hidden"
+      className="relative bg-background-primary py-24 overflow-hidden"
     >
-      {/* Decorative glows */}
-      <div className="top-[40%] right-[-10%] -z-10 absolute blur-[100px] rounded-full w-[350px] h-[350px] animate-pulse-slow bg-accent-blue/5" />
-      <div className="bottom-[20%] left-[-10%] -z-10 absolute blur-[80px] rounded-full w-[250px] h-[250px] bg-accent-cyan/3" />
-
-      <div className="mx-auto px-6 container">
+      <div className="container mx-auto px-6">
         <SectionHeader
           title={t("aboutTitle")}
           subtitle={t("aboutSubtitle")}
-          badge={language === "ar" ? "معلومات عنا" : "Company Profile"}
+          badge={language === "ar" ? "ملف الشركة" : "Company Profile"}
         />
 
-        {/* Top block: Text summary + dynamic stats list */}
-        <div className="items-center gap-12 grid grid-cols-1 lg:grid-cols-12 mb-16">
+        {/* Top block: Text summary */}
+        <div className="max-w-4xl mx-auto text-center mt-12 mb-16">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="lg:col-span-6"
+            className="flex flex-col gap-6"
           >
-            <h3 className="mb-6 font-bold text-text-heading text-2xl md:text-3xl leading-tight select-none">
+            <h3 className="text-2xl md:text-3.5xl font-bold text-text-heading font-serif leading-tight select-none">
               {title}
             </h3>
-            <p className="mb-6 font-medium text-text-secondary text-sm md:text-base leading-relaxed">
+            <p className="text-text-secondary text-sm md:text-base leading-relaxed pr-2 font-sans max-w-3xl mx-auto">
               {body}
             </p>
           </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={containerVariants}
-            className="gap-4 md:gap-6 grid grid-cols-2 lg:col-span-6"
-          >
-            {content.stats.map((stat, idx) => {
-              const label = language === "ar" ? stat.label_ar : stat.label_en;
-              return (
-                <motion.div key={idx} variants={fadeInUp}>
-                  <StatsCounter value={stat.value} label={label} />
-                </motion.div>
-              );
-            })}
-          </motion.div>
         </div>
 
-        {/* Bottom block: 3 Pillars Grid */}
+        {/* Middle block: 3 Pillars Grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
-          className="gap-6 grid grid-cols-1 md:grid-cols-3"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20"
         >
           {aboutPillars.map((pillar) => {
             const PillarIcon = pillar.icon;
             const desc = language === "ar" ? pillar.desc_ar : pillar.desc_en;
+            
             return (
               <motion.div
                 key={pillar.id}
                 variants={fadeInUp}
-                className="relative bg-background-card/50 hover:bg-background-card backdrop-blur-md p-6 border border-border-muted/10 hover:border-accent-blue/30 rounded-2xl transition-all duration-300"
+                className={`relative bg-background-secondary border border-border-muted/15 rounded-xl p-7 transition-all duration-300 hover:scale-[1.01] group ${pillar.panelGlow}`}
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-4 mb-4 text-left rtl:text-right">
                   <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center border ${pillar.glowColor}`}
+                    className="w-10 h-10 rounded-lg flex items-center justify-center border text-text-cyan bg-background-highlight border-border-highlight/40"
                   >
                     <PillarIcon className="w-5 h-5" />
                   </div>
-                  <h4 className="font-bold text-text-heading text-lg tracking-wide">
+                  <h4 className="font-bold text-text-heading text-lg tracking-wide group-hover:text-text-cyan transition-colors font-serif">
                     {t(pillar.titleKey as any)}
                   </h4>
                 </div>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                
+                <p className="text-text-secondary text-xs md:text-sm leading-relaxed text-left rtl:text-right">
                   {desc}
                 </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        {/* Bottom block: Simple minimalist stats row (as shown in the screenshot) */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-border-muted/15"
+        >
+          {content.stats.map((stat, idx) => {
+            const label = language === "ar" ? stat.label_ar : stat.label_en;
+            return (
+              <motion.div key={idx} variants={fadeInUp}>
+                <StatsCounter value={stat.value} label={label} />
               </motion.div>
             );
           })}

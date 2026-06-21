@@ -1,9 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import useEmblaCarousel from "embla-carousel-react";
+import React from "react";
+import { motion } from "framer-motion";
 import {
-  ArrowLeft,
-  ArrowRight,
   Camera,
   Network,
   Lock,
@@ -16,18 +13,16 @@ import {
   Code,
   Terminal,
   HelpCircle,
+  ArrowRight
 } from "lucide-react";
-import { Solution, SolutionCategory } from "../../types/solution";
+import { Solution } from "../../types/solution";
 import { useLanguage } from "../../hooks/use-language";
 import { SectionHeader } from "../common/section-header";
-import { GlowCard } from "../common/glow-card";
-import { cn } from "../../lib/utils";
 
 interface SolutionsSectionProps {
   solutions: Solution[];
 }
 
-// Icon mapper for dynamic CMS mapping
 const iconComponents: Record<string, React.ComponentType<any>> = {
   Camera,
   Network,
@@ -42,203 +37,65 @@ const iconComponents: Record<string, React.ComponentType<any>> = {
   Terminal,
 };
 
-export const SolutionsSection: React.FC<SolutionsSectionProps> = ({
-  solutions,
-}) => {
-  const { t, language, direction } = useLanguage();
-  const [activeCategory, setActiveCategory] = useState<SolutionCategory>("it");
-
-  // Filter solutions by category
-  const filteredSolutions = solutions.filter(
-    (item) => item.category === activeCategory && item.is_active,
-  );
-
-  // Initialize Embla
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    containScroll: "trimSnaps",
-    dragFree: true,
-    direction: direction,
-  });
-
-  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
-  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-
-  const scrollPrev = useCallback(
-    () => emblaApi && emblaApi.scrollPrev(),
-    [emblaApi],
-  );
-  const scrollNext = useCallback(
-    () => emblaApi && emblaApi.scrollNext(),
-    [emblaApi],
-  );
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setPrevBtnEnabled(emblaApi.canScrollPrev());
-    setNextBtnEnabled(emblaApi.canScrollNext());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
-  }, [emblaApi, onSelect, filteredSolutions]);
-
-  // Re-initialize Embla when active category changes
-  useEffect(() => {
-    if (emblaApi) {
-      emblaApi.reInit({ direction: direction });
-      emblaApi.scrollTo(0);
-    }
-  }, [activeCategory, emblaApi, direction]);
+export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ solutions }) => {
+  const { language, t } = useLanguage();
+  const activeSolutions = solutions.filter((sol) => sol.is_active);
 
   return (
-    <section
-      id="solutions"
-      className="relative bg-background-secondary/30 py-20"
-    >
-      {/* Decorative background glow grid */}
-      <div className="top-[20%] left-[-10%] -z-10 absolute blur-[100px] rounded-full w-[350px] h-[350px] bg-accent-cyan/5" />
-
-      <div className="mx-auto px-6 container">
+    <section id="solutions" className="relative py-24 bg-background-primary overflow-hidden">
+      <div className="container mx-auto px-6">
+        
+        {/* Section Header */}
         <SectionHeader
           title={t("solutionsTitle")}
           subtitle={t("solutionsSubtitle")}
-          badge={language === "ar" ? "حلول ذكية" : "Core Focus"}
+          badge={language === "ar" ? "خبراتنا الأساسية" : "Core Expertise"}
         />
 
-        {/* Tab Switcher Segmented Control */}
-        <div className="flex justify-center mb-10">
-          <div className="relative flex bg-background-tertiary/60 backdrop-blur-sm p-1.5 border border-border-muted/10 rounded-2xl w-full max-w-md">
-            <button
-              onClick={() => setActiveCategory("it")}
-              className={cn(
-                "z-10 flex flex-1 justify-center items-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-center tracking-wide transition-all",
-                activeCategory === "it"
-                  ? "bg-accent-blue text-white shadow-glow-blue"
-                  : "text-text-secondary hover:text-text-heading",
-              )}
-            >
-              <Network className="w-4 h-4" />
-              {t("solutionsCategoryIt")}
-            </button>
-            <button
-              onClick={() => setActiveCategory("software")}
-              className={cn(
-                "z-10 flex flex-1 justify-center items-center gap-2 px-4 py-3 rounded-xl font-bold text-sm text-center tracking-wide transition-all",
-                activeCategory === "software"
-                  ? "bg-accent-purple text-white shadow-[0_0_15px_rgba(124,58,237,0.35)]"
-                  : "text-text-secondary hover:text-white",
-              )}
-            >
-              <Code className="w-4 h-4" />
-              {t("solutionsCategorySoftware")}
-            </button>
-          </div>
-        </div>
+        {/* Grid of Clean Minimalist Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          {activeSolutions.map((sol, index) => {
+            const title = language === "ar" ? sol.title_ar : sol.title_en;
+            const desc = language === "ar" ? sol.description_ar : sol.description_en;
+            const Icon = iconComponents[sol.icon] || HelpCircle;
 
-        {/* Carousel Slider Panel */}
-        <div className="relative">
-          <div className="px-1 overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6">
-              <AnimatePresence mode="popLayout">
-                {filteredSolutions.map((sol, index) => {
-                  const title = language === "ar" ? sol.title_ar : sol.title_en;
-                  const desc =
-                    language === "ar" ? sol.description_ar : sol.description_en;
-                  const Icon = iconComponents[sol.icon] || HelpCircle;
-                  const cardColor =
-                    activeCategory === "software" ? "purple" : "cyan";
-
-                  return (
-                    <div
-                      key={sol.id}
-                      className="flex-shrink-0 w-full sm:w-[280px] md:w-[350px]"
-                    >
-                      <motion.div
-                        initial={{
-                          opacity: 0,
-                          x: direction === "rtl" ? -30 : 30,
-                        }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
-                      >
-                        <GlowCard
-                          glowColor={cardColor}
-                          className="flex flex-col justify-between h-[280px]"
-                        >
-                          <div className="flex flex-col gap-4">
-                            {/* Glowing Icon Wrapper */}
-                            <div
-                              className={cn(
-                                "flex justify-center items-center border rounded-xl w-12 h-12",
-                                activeCategory === "software"
-                                  ? "bg-accent-purple/10 border-accent-purple/30 text-accent-purple shadow-[0_0_10px_rgba(124,58,237,0.15)]"
-                                  : "bg-accent-cyan/10 border-accent-cyan/30 text-accent-cyan shadow-[0_0_10px_rgba(6,182,212,0.15)]",
-                              )}
-                            >
-                              <Icon className="w-6 h-6" />
-                            </div>
-
-                            {/* Card title */}
-                            <h3 className="font-bold text-text-heading text-xl tracking-wide">
-                              {title}
-                            </h3>
-
-                            {/* Card description */}
-                            <p className="text-text-secondary text-sm line-clamp-3 leading-relaxed">
-                              {desc}
-                            </p>
-                          </div>
-
-                          {/* Dynamic CTA Arrow */}
-                          <div className="flex items-center gap-1.5 mt-4 font-bold text-glow-blue text-xs uppercase tracking-wider transition-colors group-hover:text-accent-cyan">
-                            <span>{t("viewDetails")}</span>
-                            <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180 transition-transform rtl:group-hover:-translate-x-1 group-hover:translate-x-1" />
-                          </div>
-                        </GlowCard>
-                      </motion.div>
-                    </div>
-                  );
-                })}
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Slider Navigation Arrows (Hide if not scrollable) */}
-          {(prevBtnEnabled || nextBtnEnabled) && (
-            <div className="flex justify-center items-center gap-4 mt-8">
-              <button
-                onClick={scrollPrev}
-                disabled={!prevBtnEnabled}
-                className={cn(
-                  "flex justify-center items-center bg-background-card disabled:opacity-30 border border-border-muted/10 hover:border-accent-blue/40 rounded-xl w-10 h-10 text-text-primary transition-all disabled:pointer-events-none",
-                  prevBtnEnabled
-                    ? "hover:bg-accent-blue/10 hover:shadow-glow-blue"
-                    : "",
-                )}
-                aria-label="Previous solution slide"
+            return (
+              <motion.div
+                key={sol.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group flex flex-col justify-between p-8 bg-background-secondary border border-border-muted/15 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
               >
-                <ArrowLeft className="w-5 h-5 rtl:rotate-180" />
-              </button>
-              <button
-                onClick={scrollNext}
-                disabled={!nextBtnEnabled}
-                className={cn(
-                  "flex justify-center items-center bg-background-card disabled:opacity-30 border border-border-muted/10 hover:border-accent-blue/40 rounded-xl w-10 h-10 text-text-primary transition-all disabled:pointer-events-none",
-                  nextBtnEnabled
-                    ? "hover:bg-accent-blue/10 hover:shadow-glow-blue"
-                    : "",
-                )}
-                aria-label="Next solution slide"
-              >
-                <ArrowRight className="w-5 h-5 rtl:rotate-180" />
-              </button>
-            </div>
-          )}
+                <div>
+                  {/* Gold-tinted Circle Icon Container */}
+                  <div className="w-12 h-12 rounded-full bg-background-highlight border border-border-highlight/40 text-text-cyan flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300">
+                    <Icon className="w-5 h-5" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-text-heading mb-4 font-serif leading-snug">
+                    {title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-text-secondary text-sm leading-relaxed mb-6 font-sans">
+                    {desc}
+                  </p>
+                </div>
+
+                {/* Explore Systems Link */}
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-text-cyan hover:text-text-cyan/80 transition-colors"
+                >
+                  <span>{language === 'ar' ? 'اكتشف الأنظمة' : 'Explore Systems'}</span>
+                  <ArrowRight className="w-3.5 h-3.5 rtl:rotate-180 transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+                </a>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
